@@ -97,7 +97,7 @@ def test_update_booking(auth_token, booking_id):
 
 
 def test_patch_booking(auth_token, booking_id):
-    name = random.choice(["Jonny", "Ann", "Alice", "Ira", "Oliver", "Tina"])
+    name = random.choice(["Jonny", "Ann", "Alice", "Ira", "Oliver", "Tina", "Helena Maria Tereza Angela Alfadora"])
     price = random.choice([150, 20, 15, 100, 500, 1000, 50, 30, 80, 10_000_000])
     payload = {
         "firstname": name,
@@ -147,6 +147,23 @@ def test_patch_booking(auth_token, booking_id):
         f"{response_get.json()['additionalneeds']} is not 'Cookie, Breakfast'"
     # print(response.json())
 
+# def test_patch_booking_error(auth_token, booking_id):
+#     name = random.choice(["Jonny", "Ann", "Alice", "Ira", "Oliver", "Tina"])
+#     price = random.choice([150, 20, 15, 100, 500, 1000, 50, 30, 80, 10_000_000])
+#     payload = {
+#         "hello": name,
+#         "totalprice": price,
+#         "depositpaid": False,
+#         "bookingdates": {
+#             "checkin": "2024-03-01",
+#             "checkout": "2024-03-02"
+#         },
+#         "additionalneeds": "Cookie, Breakfast"
+#     }
+#     token = {"Cookie": f"token={auth_token}"}
+#     response = requests.patch(f'{base_url}/{booking_id}', json=payload, headers=token)
+#     print(response.status_code)
+#     print(response.json())
 
 def test_delete_booking(booking_id, auth_token):
     token = {"Cookie": f"token={auth_token}"}

@@ -5,18 +5,16 @@ class Animal:
         self.__type = type
         self.age = age
 
-    def get_type(self):
+    @property
+    def type(self):
         return self.__type
 
-    def set_type(self, new_type):
+    @type.setter
+    def type(self, new_type):
         self.__type = new_type
 
     def speak(self):
-        match(self.get_type()):
-            case "duck":
-                print(f"{self.name} says quack-quack")
-            case _:
-                print(f"We don't know how {self.name} speak")
+        print(f"We don't know how {self.name} speak")
 
 
 class Dog(Animal):
@@ -32,10 +30,19 @@ class Dog(Animal):
 class Cat(Animal):
     def __init__(self, name, age):
         super().__init__(name, age)
-        self.set_type("cat")
+        self.type("cat")
 
     def speak(self):
         if self.age <= 1:
             print(f"{self.name} says mi-mi-mi")
         else:
             print(f"{self.name} says meow")
+
+
+class Duck(Animal):
+    def __init__(self, name, age):
+        super().__init__(name, age)
+        self.type("duck")
+
+    def speak(self):
+        print(f"{self.name} says quack-quack")
