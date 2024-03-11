@@ -19,12 +19,13 @@ Sample Input:"""
 
 class BeautyTransform:
     def __init__(self, height, weight=0):
+        self.new_body = None
         self.height = height
         self.weight = weight
 
     def transformer(self):
         try:
-            new_body = self.height / self.weight
+            self.new_body = self.height / self.weight
             print("Успешная трансформация")
         except ZeroDivisionError:
             print("Лицо как в картине Крик, Эдварда Мунка")
