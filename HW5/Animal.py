@@ -1,17 +1,17 @@
 class Animal:
 
     def __init__(self, name, age):
+        self.__types = None
         self.name = name
-        self.__type = type
         self.age = age
 
     @property
-    def type(self):
-        return self.__type
+    def types(self):
+        return self.__types
 
-    @type.setter
-    def type(self, new_type):
-        self.__type = new_type
+    @types.setter
+    def types(self, new_type):
+        self.__types = new_type
 
     def speak(self):
         print(f"We don't know how {self.name} speak")
@@ -21,7 +21,7 @@ class Dog(Animal):
 
     def __init__(self, name, age):
         super().__init__(name, age)
-        setattr(self, "type", "dog")
+        setattr(self, "types", "dog")
 
     def speak(self):
         print(f"{self.name} says woof-woof")
@@ -30,7 +30,7 @@ class Dog(Animal):
 class Cat(Animal):
     def __init__(self, name, age):
         super().__init__(name, age)
-        self.type("cat")
+        setattr(self, "types", "cat")
 
     def speak(self):
         if self.age <= 1:
@@ -42,7 +42,7 @@ class Cat(Animal):
 class Duck(Animal):
     def __init__(self, name, age):
         super().__init__(name, age)
-        self.type("duck")
+        setattr(self, "types", "duck")
 
     def speak(self):
         print(f"{self.name} says quack-quack")

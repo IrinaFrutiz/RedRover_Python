@@ -7,12 +7,16 @@ dog_1 = Dog("Pit", 3)
 dog_1.speak()
 
 cat_1 = Cat("Kitty", 1)
-print(cat_1.get_type())
 cat_1.speak()
 cat_1.age = 2
 cat_1.speak()
 
 
 donald = Animal("Donald", 100)
-donald.set_type("duck")
+print(donald.types)
 donald.speak()
+
+donald = Duck("Donald", 100)
+print(donald.types)
+donald.speak()
+
