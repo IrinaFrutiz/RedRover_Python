@@ -119,7 +119,7 @@ def test_patch_booking(auth_token, booking_id):
         f"{response.json()['firslastnametname']} is not 'Brown'"
     assert response.json()['totalprice'] == price, \
         f"{response.json()['totalprice']} is not {price}"
-    assert not(response.json()['depositpaid']), \
+    assert not (response.json()['depositpaid']), \
         f"{response.json()['depositpaid']} is not 'False'"
     assert response.json()['bookingdates']['checkin'] == '2024-03-01', \
         f"{response.json()['bookingdates']['checkin']} is not '2024-03-01'"
@@ -137,7 +137,7 @@ def test_patch_booking(auth_token, booking_id):
         f"{response_get.json()['firslastnametname']} is not 'Brown'"
     assert response_get.json()['totalprice'] == price, \
         f"{response_get.json()['totalprice']} is not {price}"
-    assert not(response_get.json()['depositpaid']), \
+    assert not (response_get.json()['depositpaid']), \
         f"{response_get.json()['depositpaid']} is not 'False'"
     assert response_get.json()['bookingdates']['checkin'] == '2024-03-01', \
         f"{response_get.json()['bookingdates']['checkin']} is not '2024-03-01'"
@@ -146,6 +146,7 @@ def test_patch_booking(auth_token, booking_id):
     assert response_get.json()['additionalneeds'] == "Cookie, Breakfast", \
         f"{response_get.json()['additionalneeds']} is not 'Cookie, Breakfast'"
     # print(response.json())
+
 
 # def test_patch_booking_error(auth_token, booking_id):
 #     name = random.choice(["Jonny", "Ann", "Alice", "Ira", "Oliver", "Tina"])
